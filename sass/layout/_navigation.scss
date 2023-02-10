@@ -1,0 +1,106 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  // align-items: center;
+
+  .side-nav {
+    font-size: 1.4rem;
+    list-style: none;
+    margin-top: 3.5rem;
+    color: var(--color-grey-light-1);
+
+    @media only screen and(max-width:56.25em) {
+      display: flex;
+      margin: 0;
+    }
+    &__item {
+      position: relative;
+
+      @media only screen and(max-width:56.25em) {
+        flex: 1 1 auto;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 0.5rem;
+        @media only screen and(max-width:56.25em) {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &__item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background-color: var(--color-primary);
+      transform: scaleY(0);
+
+      transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s,
+        background-color 0.2s;
+    }
+
+    &__item:hover::before,
+    &__item--active::before {
+      transform: scaleY(1);
+      width: 100%;
+    }
+
+    &__item:active::before {
+      background-color: var(--color-white-light);
+    }
+
+    &__link {
+      &:link,
+      &:visited {
+        text-decoration: none;
+        text-transform: uppercase;
+        // display: block;
+        padding: 1.5rem 3rem;
+        color: inherit;
+        display: flex;
+        align-items: center;
+        position: relative;
+        z-index: 100;
+
+        @media only screen and(max-width:56.25em) {
+          justify-content: center;
+          padding: 2rem;
+        }
+
+        @media only screen and (max-width: 37.5em) {
+          flex-direction: column;
+          padding: 1.5rem;
+        }
+      }
+    }
+    &__icon {
+      height: 1.75rem;
+      width: 1.75rem;
+      fill: currentColor;
+      margin-right: 2rem;
+      @media only screen and (max-width: 37.5em) {
+        margin: 0;
+        height: 1.5rem;
+        width: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    span {
+    }
+  }
+
+  .copyright {
+    font-size: 1.2rem;
+    color: var(--color-grey-light-4);
+    text-align: center;
+    padding: 2.5rem;
+    @media only screen and(max-width:56.25em) {
+      display: none;
+    }
+  }
+}

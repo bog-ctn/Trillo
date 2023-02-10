@@ -1,0 +1,239 @@
+.hotel-view {
+  .gallery {
+    display: flex;
+
+    &__item {
+    }
+
+    &__photo {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .overview {
+    display: flex;
+    border-bottom: 1px solid var(--color-grey-light-2);
+    align-items: center;
+
+    @media only screen and (max-width: $bp-small) {
+      flex-wrap: wrap;
+    }
+
+    & > * {
+      flex: 0 0 auto;
+    }
+
+    &__heading {
+      font-size: 2.25rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 1.5rem 3rem;
+
+      @media only screen and (max-width: $bp-small) {
+        font-size: 1.8rem;
+        padding: 1.25rem 2rem;
+      }
+      @media only screen and (max-width: $bp-xsmall) {
+        font-size: 1.6rem;
+        padding: 1rem 1.25rem;
+      }
+      @media only screen and (max-width: $bp-smallest) {
+        flex: 0 0 100%;
+        text-align: center;
+      }
+    }
+    &__stars {
+      // flex: 1 1 auto;
+      margin-right: auto;
+      display: flex;
+      @media only screen and (max-width: $bp-smallest) {
+        margin-right: 0;
+        flex: 1 1 auto;
+        justify-content: center;
+      }
+    }
+    &__icon-star {
+      @include svgEdit(1.75rem, 1.75rem, var(--color-primary));
+      @media only screen and (max-width: $bp-xsmall) {
+        @include svgEdit(1.25rem, 1.25rem, var(--color-primary));
+      }
+    }
+    &__location {
+      font-size: 1.2rem;
+      display: flex;
+      gap: 1rem;
+      @media only screen and (max-width: $bp-xsmall) {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.3rem;
+      }
+      @media only screen and (max-width: $bp-smallest) {
+        flex: 1 1 auto;
+      }
+    }
+
+    &__icon-location-pin {
+      @include svgEdit(1.75rem, 1.75rem, var(--color-primary));
+    }
+    &__rating {
+      background-color: var(--color-primary);
+      margin-left: 3rem;
+      color: var(--color-white);
+      align-self: stretch;
+      text-align: center;
+      padding: 0 2rem;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      @media only screen and (max-width: 37.5em) {
+        padding: 0 1.5rem;
+        margin-left: 1.5rem;
+      }
+      @media only screen and (max-width: $bp-smallest) {
+        flex: 1 1 auto;
+        margin-left: 0;
+      }
+    }
+    &__rating-average {
+      font-size: 2.25rem;
+      font-weight: 300;
+      margin-bottom: -3px;
+
+      @media only screen and (max-width: 37.5em) {
+        font-size: 1.8rem;
+      }
+    }
+    &__rating-count {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      @media only screen and (max-width: 37.5em) {
+        font-size: 0.5rem;
+      }
+    }
+  }
+
+  .details {
+    font-size: 1.4rem;
+    display: flex;
+    gap: 4.5rem;
+    padding: 4.5rem;
+    background-color: var(--color-grey-light-1);
+    border-bottom: 1px solid var(--color-grey-light-2);
+    @media only screen and (max-width: 56.25em) {
+      padding: 3rem;
+      gap: 3rem;
+    }
+    @media only screen and (max-width: 37.5em) {
+      flex-direction: column;
+    }
+    .description {
+      padding: 3rem;
+      background-color: var(--color-white);
+      flex: 0 0 60%;
+      box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.3);
+
+      &__para:not(:last-of-type) {
+        margin-bottom: 2rem;
+      }
+
+      @media only screen and (max-width: 56.25em) {
+        padding: 2rem;
+      }
+    }
+
+    .user-reviews {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .review {
+        background-color: var(--color-white);
+        box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.3);
+        padding: 3rem;
+        margin-bottom: 3.5rem;
+        position: relative;
+        overflow: hidden;
+        @media only screen and (max-width: 56.25em) {
+          padding: 2rem;
+          margin-bottom: 3rem;
+        }
+        &__text {
+          margin-bottom: 2rem;
+          position: relative;
+          z-index: 10;
+        }
+        &__user {
+          display: flex;
+          align-items: center;
+        }
+        &__photo {
+          width: 4.5rem;
+          height: 4.5rem;
+          border-radius: 50%;
+        }
+        &__user-box {
+          margin-left: 1.5rem;
+          margin-right: auto;
+        }
+        &__user-name {
+          font-size: 1.1rem;
+          font-weight: 600;
+          text-transform: uppercase;
+          margin-bottom: 0.25rem;
+        }
+        &__user-date {
+          color: var(--color-grey-dark-3);
+          font-size: 1rem;
+        }
+        &__rating {
+          font-size: 2.2rem;
+          color: var(--color-primary);
+          font-weight: 300;
+        }
+      }
+      .review::before {
+        content: "\201C";
+        font-size: 20rem;
+        font-family: sans-serif;
+        line-height: 1;
+        color: var(--color-grey-light-2);
+        position: absolute;
+        top: -2.75rem;
+        left: -1rem;
+        z-index: 1;
+      }
+    }
+  }
+
+  .cta {
+    padding: 3.5rem;
+    text-align: center;
+    @media only screen and (max-width: 56.25em) {
+      padding: 2.5rem 0;
+    }
+
+    &__book-now {
+      text-transform: uppercase;
+      font-size: 2rem;
+      font-weight: 300;
+      margin-bottom: 2.5rem;
+      @media only screen and (max-width: 56.25em) {
+        margin-bottom: 1.75rem;
+        font-size: 1.8rem;
+      }
+      @media only screen and (max-width: $bp-small) {
+        font-size: 1.6rem;
+      }
+      @media only screen and (max-width: $bp-xsmall) {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}
